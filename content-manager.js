@@ -145,6 +145,7 @@ CachedMeta.prototype.getBirthTime = function() {
 * removes the oldest file(s) that exceed the rotatorcap in the rotationdir
 */
 function removeExtra(rotationdir, callback) {
+    console.log("DEBUG: content-manager: removeExtra called");
   fs.readdir(rotationdir, (err, files) => {
     if(err) {
       console.error(err.message);

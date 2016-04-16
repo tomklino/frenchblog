@@ -28,6 +28,7 @@ aFrenchExperience.controller('networkData', ['$scope', '$rootScope', function ($
                     }
                     toSaveTimeout = $timeout(function () {
                         //TODO: create a module for the function within the timeout
+                        console.log("Sending a save. Time: " + Date.now());
                         $http({
                             url: "/",
                             method: "POST",
@@ -37,7 +38,6 @@ aFrenchExperience.controller('networkData', ['$scope', '$rootScope', function ($
                                 content: elem.html()
                             }
                         }).then(function (res) {
-                            console.log(res);
                             $rootScope.data = "Saved";
                         }, function (res) {
                             $rootScope.data = "Error while saving";
