@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="aFrenchExperience" >
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>A French Experience</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro|Lora:400,700italic|Lobster|Alegreya:700|Raleway:500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+
+	<script type="text/javascript">
+		var PBGlobals = {
+			timeToSave: 2000
+		};
+	</script>
+	<script type="text/javascript" src="js/angular.min.js"> </script>
+	<!--<script type="text/javascript" src="js/jquery.js"> </script>-->
+	<!--<script type="text/javascript" src="js/script.js"> </script>-->
+	<script type="text/javascript" src="js/controllers.js"> </script>
+  </head>
+  <body>
+	<div id="network_data" class="debugger" ng-controller="networkData">{{data}}</div>
+	<div id="dyn_background" class="background">
+		<img class="background_pic" src="images/eiffel1-blurred.jpg" />
+    </div>
+	<div id="header_area" class="align_center" >
+		<span id="header_text" class="server_content" afe-content-box="header_text"></span>
+	</div>
+	<div id="subheader_area" class="align_center"><span id="subheader_text" class="server_content" afe-content-box="subheader_text"></span>
+	</div>
+	<div id="content_area" class="text_area image_area align_center" >
+		<div id="content" class="server_content" afe-content-box="content" >
+		</div>
+	</div>
+
+  </body>
+</html>
