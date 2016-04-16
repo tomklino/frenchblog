@@ -3,8 +3,12 @@ var aFrenchExperience = angular.module('aFrenchExperience', []);
 aFrenchExperience.controller('networkData', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $rootScope.data = "";
 }])
+//TODO: seperate this directive to a module and put it in another file
     .directive('afeContentBox', ['$http', '$timeout', '$rootScope', function ($http, $timeout, $rootScope) {
+        
         function link(scope, elem, attr, ctrl) {
+            
+            //TODO: add a condition that will allow editing only if the logged in user is admin
             
             function unmakeEditable(elem) {
                 elem.attr("contentEditable", "false");
@@ -23,6 +27,7 @@ aFrenchExperience.controller('networkData', ['$scope', '$rootScope', function ($
                         $timeout.cancel(toSaveTimeout);
                     }
                     toSaveTimeout = $timeout(function () {
+                        //TODO: create a module for the function within the timeout
                         $http({
                             url: "/",
                             method: "POST",
@@ -37,6 +42,7 @@ aFrenchExperience.controller('networkData', ['$scope', '$rootScope', function ($
                         }, function (res) {
                             $rootScope.data = "Error while saving";
                         });
+                        //TODO: the 2000 should be replaced by a global that can be pulled from a seperate file or queried from the server
                     }, 2000);
                 });
 

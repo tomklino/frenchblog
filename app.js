@@ -42,6 +42,8 @@ app.get("/", (req, res) => {
 });
 
 //tell express to listen to all files and folder in the htmldir
+//TODO: move to a seperate file
+//TODO(low): watch directory and add/remove listeners on the go 
 var htmldirContents = fs.readdirSync(htmldir);
 for(var i = 0; i < htmldirContents.length; i++) {
   var listing = fs.statSync(htmldir + "/" + htmldirContents[i]);
@@ -63,6 +65,8 @@ app.post('/*', (req, res) => {
   console.log("action: " + req.body.action);
   console.log("section: " + req.body.section);
   if(req.body.action === "edit_content") {
+      //TODO: add security measure: to edit content user must provide proof that he is admin
+      
     cm.editContent(req, (err) => {
       if(err) {
         console.error("ERROR: " + err.message);
